@@ -1,4 +1,5 @@
 <?php
+require "ConnexionBdd.php"; 
 class FicheModel{
     
     private $idfiche;
@@ -49,14 +50,13 @@ class FicheModel{
 
 
     //fonction d'ajout d'une fiche
-    function ajoutfiche ($titre, $date, $textfiche, $id){
-        $sql = "insert into ficheconnaissance (titre, date, textefiche) values " + $titre + " ," + $date + " ," + $textfiche;
-        $req= ConnexionBdd::getInstance()->prepare($sql);
-        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, '');
-        $req->execute();
-
+    function ajoutfiche ($idcat ,$iduser ,$titre, $textfiche){
+        $requete = ConnexionBdd::getInstance()->prepare("insert into ficheconnaissance (IDFICHE,IDCAT ,IDUSER,titre, date, textefiche) VALUES (NULL, ?, ?, ?, NOW(),? );");
+        $requete->execute(array($idcat ,$iduser ,$titre, $textfiche));
+    
         
     } 
+
 
     //fonction de modification du titre d'une fiche
     function modiftitre ($titre, $idfiche){
