@@ -3,7 +3,7 @@ class ConnexionBdd
 {
 
 private static $serveur='mysql:host=localhost';
-private static $bdd='dbname=bonbons'; 
+private static $bdd='dbname=projet1'; 
 private static $user='root' ; 
 private static $mdp='' ;
 private static $monPdo;
