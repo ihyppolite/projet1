@@ -1,15 +1,31 @@
-<form  action="add_article.php" method="post">
+<?php foreach($categories as $categorie){ 
+  $categorie['IDCAT'];
+  $categorie['TITRE'];} 
+?>
+
+<form  action="./add_article.php" method="post">
   <fieldset>
     <legend>Nouvelle fiche</legend>
         
     <div class="form-group">
-        <label for="formGroupExampleInput">Title</label>
+        <label for="formGroupExampleInput">titre</label>
         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="title" name="title">
     </div>
+
+    <select name="idCategorie"class="form-select" aria-label="Default select example">
+    <?php foreach($categories as $categorie){ ?>
+    <option value="<?= $categorie['IDCAT']; ?>"> 
+    
+    <?= $categorie['TITRE']; } ?>
+    
+    </option>
+    
+  </select>
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Content</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name=content></textarea>
     </div>
+
     
 
     <br>

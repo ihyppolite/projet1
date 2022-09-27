@@ -1,5 +1,5 @@
 <?php
-
+require "ConnexionBdd.php";
 class Categorie{
    
     private $idcat;
@@ -19,7 +19,7 @@ class Categorie{
 
     
     static function afficherEnsembleDesCategories(){
-        $req=ConnexionBdd::getInstance()->prepare("select * from categorie ");
+        $req= ConnexionBdd::getInstance()->prepare("select * from categorie ");
         $req->execute();
         $donnees=$req->fetchAll();
         return $donnees;
