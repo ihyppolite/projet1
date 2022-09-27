@@ -1,0 +1,99 @@
+<?php
+class FicheModel{
+    
+    private $idfiche;
+    private $titre;
+    private $date;
+    private $textfiche;
+    
+    
+    function getId(){
+        return $this->id;
+    }
+
+    function getTitre(){
+        return $this->titre;
+    }
+
+    function getdate(){
+        return $this->date;
+    }
+
+    function getTexte(){
+        return $this->textfiche;
+    }
+
+    function setId($id){
+        $this->id = $id;
+    }
+
+    function setTitre($titre){
+        $this->titre = $titre;
+    }
+
+    function setDate($date){
+        $this->date = $date;
+    }
+
+    function setTexte($textefiche){
+        $this->textefiche = $textefiche;
+    }
+
+    function recupFiche (){
+        $req = "select * from ficheconnaissance ";
+        $req= ConnexionBdd::getInstance()->prepare($req);
+        $req->fetch(PDO::FETCH_ASSOC);
+
+        
+    }
+
+
+    //fonction d'ajout d'une fiche
+    function ajoutfiche ($titre, $date, $textfiche, $id){
+        $sql = "insert into ficheconnaissance (titre, date, textefiche) values " + $titre + " ," + $date + " ," + $textfiche;
+        $req= ConnexionBdd::getInstance()->prepare($sql);
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, '');
+        $req->execute();
+
+        
+    } 
+
+    //fonction de modification du titre d'une fiche
+    function modiftitre ($titre, $idfiche){
+
+        $sql = "update ficheconnaissance set titre = " + $titre + " where idfiche = " + $idfiche ;
+        $req= ConnexionBdd::getInstance()->prepare($sql);
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, '');
+        $req->execute();
+        
+        
+    } 
+
+    //fonction de modification du titre d'une fiche
+    function modifdate ($date, $idfiche){
+        $sql = "update ficheconnaissance date = " + $date + " where idfiche = " + $idfiche ;
+        $req= ConnexionBdd::getInstance()->prepare($sql);
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, '');
+        $req->execute();
+        
+    }
+    
+    //fonction de modification du titre d'une fiche
+    function modiftextefiche ($textefiche, $idfiche){
+        $sql = "update ficheconnaissance date = " + $textefiche + " where idfiche = " + $idfiche ;
+        $req= ConnexionBdd::getInstance()->prepare($sql);
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, '');
+        $req->execute();
+        
+    } 
+    
+    //fonction de supression d'une fiche
+    function suppfiche ($titre){
+        $sql = "delete from ficheconnaissance where titre == " + $titre ;
+        $req= ConnexionBdd::getInstance()->prepare($sql);
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, '');
+        $req->execute();
+        
+    } 
+
+}
