@@ -4,12 +4,12 @@ $choix=$_GET['choix'];
 
 switch($choix){
     case "connexion":
-        include "../View/connexion.phtml";
+        include "../View/login.phtml";
         break;
 
     case "inscription":
-        include "../View/inscription.phtml";
-            
+        include "../View/register.phtml";
+
     default :
         echo "";
     

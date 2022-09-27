@@ -1,140 +1,125 @@
-DROP DATABASE IF EXISTS PROJET1;
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : ven. 23 sep. 2022 à 13:31
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
 
-CREATE DATABASE IF NOT EXISTS PROJET1;
-USE PROJET1;
-# -----------------------------------------------------------------------------
-#       TABLE : COMMENTAIRE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS COMMENTAIRE
- (
-   IDCOMMENTAIRE CHAR(32) NOT NULL  ,
-   IDFICHE CHAR(32) NOT NULL  ,
-   IDUSER INTEGER NOT NULL  ,
-   CONTENU CHAR(255) NULL  
-   , PRIMARY KEY (IDCOMMENTAIRE) 
- ) 
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE COMMENTAIRE
-# -----------------------------------------------------------------------------
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-CREATE  INDEX I_FK_COMMENTAIRE_USERCONNECTEE
-     ON COMMENTAIRE (IDUSER ASC);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-CREATE  INDEX I_FK_COMMENTAIRE_FICHECONNAISSANCE
-     ON COMMENTAIRE (IDFICHE ASC);
+--
+-- Base de données : `bdd_sk`
+--
 
-# -----------------------------------------------------------------------------
-#       TABLE : USER
-# -----------------------------------------------------------------------------
+-- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS USER
- (
-   IDUSER INTEGER NOT NULL  ,
-   NOM CHAR(32) NULL  ,
-   PRENOM CHAR(32) NULL  
-   , PRIMARY KEY (IDUSER) 
- ) 
- comment = "";
+--
+-- Structure de la table `administrateur`
+--
 
-# -----------------------------------------------------------------------------
-#       TABLE : ADMINISTRATEUR
-# -----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `administrateur`;
+CREATE TABLE IF NOT EXISTS `administrateur` (
+  `IDUSER` int(11) NOT NULL,
+  `NOMUTILISATEURADMIN` char(32) DEFAULT NULL,
+  `MDP` char(32) DEFAULT NULL,
+  `NOM` char(32) DEFAULT NULL,
+  `PRENOM` char(32) DEFAULT NULL,
+  PRIMARY KEY (`IDUSER`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS ADMINISTRATEUR
- (
-   IDUSER INTEGER NOT NULL  ,
-   NOMUTILISATEURADMIN CHAR(32) NULL  ,
-   MDP CHAR(32) NULL  ,
-   NOM CHAR(32) NULL  ,
-   PRENOM CHAR(32) NULL  
-   , PRIMARY KEY (IDUSER) 
- ) 
- comment = "";
+-- --------------------------------------------------------
 
-# -----------------------------------------------------------------------------
-#       TABLE : CATEGORIE
-# -----------------------------------------------------------------------------
+--
+-- Structure de la table `categorie`
+--
 
-CREATE TABLE IF NOT EXISTS CATEGORIE
- (
-   IDCAT CHAR(32) NOT NULL  ,
-   TITRE CHAR(32) NULL  
-   , PRIMARY KEY (IDCAT) 
- ) 
- comment = "";
+DROP TABLE IF EXISTS `categorie`;
+CREATE TABLE IF NOT EXISTS `categorie` (
+  `IDCAT` char(32) NOT NULL,
+  `TITRE` char(32) DEFAULT NULL,
+  PRIMARY KEY (`IDCAT`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-# -----------------------------------------------------------------------------
-#       TABLE : USERCONNECTEE
-# -----------------------------------------------------------------------------
+-- --------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS USERCONNECTEE
- (
-   IDUSER INTEGER NOT NULL  ,
-   MAIL VARCHAR(128) NULL  ,
-   MDP CHAR(32) NULL  ,
-   DROITAJOUT BOOL NULL  ,
-   DROITMODIF BOOL NULL  ,
-   DROITSUPPRIMER BOOL NULL  ,
-   NOM CHAR(32) NULL  ,
-   PRENOM CHAR(32) NULL  
-   , PRIMARY KEY (IDUSER) 
- ) 
- comment = "";
+--
+-- Structure de la table `commentaire`
+--
 
-# -----------------------------------------------------------------------------
-#       TABLE : FICHECONNAISSANCE
-# -----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `commentaire`;
+CREATE TABLE IF NOT EXISTS `commentaire` (
+  `IDCOMMENTAIRE` char(32) NOT NULL,
+  `IDFICHE` char(32) NOT NULL,
+  `IDUSER` int(11) NOT NULL,
+  `CONTENU` char(255) DEFAULT NULL,
+  PRIMARY KEY (`IDCOMMENTAIRE`),
+  KEY `I_FK_COMMENTAIRE_USERCONNECTEE` (`IDUSER`),
+  KEY `I_FK_COMMENTAIRE_FICHECONNAISSANCE` (`IDFICHE`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS FICHECONNAISSANCE
- (
-   IDFICHE CHAR(32) NOT NULL  ,
-   IDCAT CHAR(32) NOT NULL  ,
-   TITRE CHAR(32) NULL  ,
-   DATE CHAR(32) NULL  ,
-   TEXTEFICHE CHAR(255) NULL  
-   , PRIMARY KEY (IDFICHE) 
- ) 
- comment = "";
+-- --------------------------------------------------------
 
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE FICHECONNAISSANCE
-# -----------------------------------------------------------------------------
+--
+-- Structure de la table `ficheconnaissance`
+--
 
+DROP TABLE IF EXISTS `ficheconnaissance`;
+CREATE TABLE IF NOT EXISTS `ficheconnaissance` (
+  `IDFICHE` char(32) NOT NULL,
+  `IDCAT` char(32) NOT NULL,
+  `IDUSER` int(11) NOT NULL,
+  `TITRE` char(32) DEFAULT NULL,
+  `DATE` datetime DEFAULT NULL,
+  `TEXTEFICHE` char(255) DEFAULT NULL,
+  PRIMARY KEY (`IDFICHE`),
+  KEY `I_FK_FICHECONNAISSANCE_CATEGORIE` (`IDCAT`),
+  KEY `I_FK_FICHECONNAISSANCE_USER` (`IDUSER`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-CREATE  INDEX I_FK_FICHECONNAISSANCE_CATEGORIE
-     ON FICHECONNAISSANCE (IDCAT ASC);
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `user`
+--
 
-# -----------------------------------------------------------------------------
-#       CREATION DES REFERENCES DE TABLE
-# -----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `IDUSER` int(11) NOT NULL,
+  `NOM` char(32) DEFAULT NULL,
+  `PRENOM` char(32) DEFAULT NULL,
+  PRIMARY KEY (`IDUSER`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
 
-ALTER TABLE COMMENTAIRE 
-  ADD FOREIGN KEY FK_COMMENTAIRE_USERCONNECTEE (IDUSER)
-      REFERENCES USERCONNECTEE (IDUSER) ;
+--
+-- Structure de la table `userconnectee`
+--
 
+DROP TABLE IF EXISTS `userconnectee`;
+CREATE TABLE IF NOT EXISTS `userconnectee` (
+  `IDUSER` int(11) NOT NULL,
+  `MAIL` varchar(128) DEFAULT NULL,
+  `MDP` char(32) DEFAULT NULL,
+  `DROITAJOUT` tinyint(1) DEFAULT NULL,
+  `DROITMODIF` tinyint(1) DEFAULT NULL,
+  `DROITSUPPRIMER` tinyint(1) DEFAULT NULL,
+  `NOM` char(32) DEFAULT NULL,
+  `PRENOM` char(32) DEFAULT NULL,
+  PRIMARY KEY (`IDUSER`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+COMMIT;
 
-ALTER TABLE COMMENTAIRE 
-  ADD FOREIGN KEY FK_COMMENTAIRE_FICHECONNAISSANCE (IDFICHE)
-      REFERENCES FICHECONNAISSANCE (IDFICHE) ;
-
-
-ALTER TABLE ADMINISTRATEUR 
-  ADD FOREIGN KEY FK_ADMINISTRATEUR_USER (IDUSER)
-      REFERENCES USER (IDUSER) ;
-
-
-ALTER TABLE USERCONNECTEE 
-  ADD FOREIGN KEY FK_USERCONNECTEE_USER (IDUSER)
-      REFERENCES USER (IDUSER) ;
-
-
-ALTER TABLE FICHECONNAISSANCE 
-  ADD FOREIGN KEY FK_FICHECONNAISSANCE_CATEGORIE (IDCAT)
-      REFERENCES CATEGORIE (IDCAT) ;
-
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
