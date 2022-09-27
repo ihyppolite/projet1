@@ -1,5 +1,3 @@
 <?php
-
-$template = "View/home.phtml";
-require "View/layout.phtml";
-
+$template = "../View/home.phtml";
+require "../View/layout.phtml";
