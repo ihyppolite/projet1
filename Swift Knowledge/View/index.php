@@ -11,3 +11,6 @@ catch (PDOException $e){
     throw new Exception("Connexion à la base de données impossible");
 }
 
+?>
+
+
