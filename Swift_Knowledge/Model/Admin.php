@@ -1,6 +1,7 @@
 <?php
 
 class Admin{
+    
     public static function verifier($login,$mdp){
         $req=ConnexionBdd::getInstance()->prepare("select * from admin where nomutilisateuradmin=:login and mdp=:mdp");
         $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'admin');

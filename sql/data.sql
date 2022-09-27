@@ -97,26 +97,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   `IDUSER` int(11) NOT NULL,
   `NOM` char(32) DEFAULT NULL,
   `PRENOM` char(32) DEFAULT NULL,
-  PRIMARY KEY (`IDUSER`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `userconnectee`
---
-
-DROP TABLE IF EXISTS `userconnectee`;
-CREATE TABLE IF NOT EXISTS `userconnectee` (
-  `IDUSER` int(11) NOT NULL,
   `MAIL` varchar(128) DEFAULT NULL,
   `MDP` char(32) DEFAULT NULL,
   `DROITAJOUT` tinyint(1) DEFAULT NULL,
   `DROITMODIF` tinyint(1) DEFAULT NULL,
   `DROITSUPPRIMER` tinyint(1) DEFAULT NULL,
-  `NOM` char(32) DEFAULT NULL,
-  `PRENOM` char(32) DEFAULT NULL,
-  PRIMARY KEY (`IDUSER`)
+   PRIMARY KEY (`IDUSER`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
