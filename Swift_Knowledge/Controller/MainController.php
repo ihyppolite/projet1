@@ -15,7 +15,7 @@ switch($choix){
         $reponse=User::addUser($_POST["nom"], $_POST["prenom"],$_POST["mail"],$_POST["password"]);
 
         if($reponse==true){
-            include "../home.php";
+            include "../php/home.php";
             break;
 
         }else{
