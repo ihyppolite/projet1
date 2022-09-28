@@ -3,5 +3,5 @@
 
 
 
-$template = "View/register.phtml";
-require "View/layout.phtml";
+$template = "../View/register.phtml";
+require "../View/layout.phtml";
