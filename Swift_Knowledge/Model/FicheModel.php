@@ -101,4 +101,16 @@ class FicheModel
         $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, '');
         $req->execute();
     }
+
+      //fonction d'ajout d'une fiche
+      function trouveUneFiche($recherche,$categorie)
+      {
+          $requete = ConnexionBdd::getInstance()->prepare("SELECT TITRE FROM ficheconnaissance WHERE TITRE LIKE ? AND IDCAT = ?");
+          $requete->execute(array($recherche,$categorie));
+          $donnees=$requete->fetchAll();
+          return $donnees;
+      }
+  
+
+
 }
