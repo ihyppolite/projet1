@@ -1,7 +1,4 @@
 <?php 
-
-
-
-
-$template = "View/login.phtml";
-require "View/layout.phtml";
+$alertConnexionFail;
+$template = "../View/login.phtml";
+require "../View/layout.phtml";

@@ -58,7 +58,11 @@
       </div>
     </header>  
     
-    <?php	include $template;	?>
+    <?php	include $template;
+			if(isset($alertConnexionSuccess)){
+				echo $alertConnexionSuccess;
+			}
+	?>
 
     <footer class="mainfooter" role="contentinfo">
 			  <div class="footer-middle">
