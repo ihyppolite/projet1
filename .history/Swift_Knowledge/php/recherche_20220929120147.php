@@ -16,6 +16,4 @@ if(!empty($_GET)){
 }
 else {
 
-        header("home.php")
-
 }

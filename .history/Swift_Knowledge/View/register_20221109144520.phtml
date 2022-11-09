@@ -1,51 +1,5 @@
 
 	 
-<<<<<<< HEAD
- <?php if(!empty($notification)):?>
-   <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      	<?php echo $notification ?>
-   		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  <?php endif; ?>
-		
-		
-			
-				<div id="login">
-			        <h3 class="text-center text-white pt-5">Register form</h3>
-			        <div class="container">
-			            <div id="login-row" class="row justify-content-center align-items-center">
-			                <div id="login-column" class="col-md-6">
-			                    <div id="login-box" class="col-md-12">
-			                        <form id="login-form" class="form" action="../Controller/MainController.php?choix=verif" method="post">
-			                            <h3 class="text-center text-info">register</h3>
-                                        <div class="form-group">
-			                                <label for="username" class="text-info">nom:</label><br>
-			                                <input type="text" name="nom" id="nom" class="form-control">
-											<?php 
-												if(isset($errorNom)){
-												  	echo $errorNom;
-												}
-											?>
-												  
-			                            </div>
-                                        <div class="form-group">
-			                                <label for="username" class="text-info">prenom:</label><br>
-			                                <input type="text" name="prenom" id="prenom" class="form-control">
-											<?php 
-												if(isset($errorPrenom)){
-												  	echo $errorPrenom;
-												}
-											?>
-			                            </div>
-			                            <div class="form-group">
-			                                <label for="username" class="text-info">mail:</label><br>
-			                                <input type="text" name="mail" id="mail" class="form-control">
-											<?php 
-												if(isset($errorMail)){
-												  	echo $errorMail;
-												}
-											?>
-=======
    <section>
     <div class="hero min-h-screen" style="background-color: #46a7d6;">
       <div class="hero-content flex-col lg:flex-row-reverse">
@@ -79,7 +33,6 @@
               </label>
               <input type="text" placeholder="email" class="input input-bordered" />
             </div>
->>>>>>> eed565537d3f4f4d233aa205eccbe4ede341141e
 
             <div class="form-control">
               <label class="label">
