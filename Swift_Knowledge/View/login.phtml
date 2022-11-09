@@ -1,5 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
 
-	 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<body>
+
+<?php
+ 	if(!empty($notification)):?>
+   <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      	<?php echo $notification ?>
+   		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <?php endif;
+
+	if($alertConnexionFail){ // la première fois qu'on entre dans la page connexion, la variable est null, elle ne détient rien ("")
+		echo $alertConnexionFail; // si la personne n'a pas pu se connecter, alors le message s'affiche.
+	}
+	?>
+  <!--=============== MAIN ===============-->
   <section>
     <div class="hero min-h-screen" style="background-image: url(../img/BgBookIA.png);">
       <div class="hero-content flex-col lg:flex-row-reverse">
@@ -11,26 +34,24 @@
         </div>
         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div class="card-body">
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text font-fredoka">Email</span>
-              </label>
-              <input type="text" placeholder="email" class="input input-bordered font-rubik" />
-            </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text font-fredoka">Mot de passe</span>
-              </label>
-              <input type="text" placeholder="mot de passe" class="input input-bordered font-rubik" />
-              <label class="label">
-                <a href="#" class="label-text-alt link link-hover font-fredoka">Mot de passe oublié ?</a>
-              </label>
-            </div>
-            <div class="form-control mt-6">
-              <button class="btn btn-primary font-fredoka">Connexion</button>
-            </div>
+            <form  action="../Controller/MainController.php?choix=verif" method="POST">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-fredoka">Email</span>
+                </label>
+                <input type="text" placeholder="email" class="input input-bordered font-rubik" required/>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-fredoka">Mot de passe</span>
+                </label>
+                <input type="password" placeholder="mot de passe" class="input input-bordered font-rubik" required/>
+              </div>
+              <input type="submit" placeholder="valider"  class="input input-bordered font-rubik" required/>
+            </form>
+            
             <div class="pt-8">
-              <a href=""><span class="label-text font-fredoka">Nouveau client ? S'inscrire <svg version="1.1"
+              <a href="../php/register.php?choix=register"><span class="label-text font-fredoka">Nouveau client ? S'inscrire <svg version="1.1"
                     id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     width="20" height="20" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;"
                     xml:space="preserve">
@@ -44,3 +65,9 @@
       </div>
     </div>
   </section>
+
+ 
+
+</body>
+
+</html>
