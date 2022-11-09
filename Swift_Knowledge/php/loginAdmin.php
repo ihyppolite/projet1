@@ -1,4 +1,4 @@
 <?php 
 $alertConnexionFail;
-$template = "../View/login.phtml";
+$template = "../View/loginAdmin.phtml";
 require "../View/layout.phtml";
