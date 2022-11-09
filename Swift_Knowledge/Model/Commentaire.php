@@ -33,4 +33,16 @@ class Commentaire
         $donnees = $req->fetchAll();
         return $donnees;
     }
+
+    //Recherche un commentaire par user
+    static function rechercherUnCommentaireParUser($idUser)
+    {
+        $sql = "select * from commentaire where idUser = " + $idUser;
+        $req = ConnexionBdd::getInstance()->prepare($sql);
+        $req->execute();
+        $donnees = $req->fetchAll();
+        return $donnees;
+    }
+
+
 }
