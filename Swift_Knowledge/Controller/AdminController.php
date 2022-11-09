@@ -1,8 +1,10 @@
 <?php
 
-$choixAdmin=$_GET['choixAdmin'];
+include "../Model/Admin.php";
 
-switch($choixAdmin){
+$choix=$_GET['choix'];
+
+/*switch($choixAdmin){
     case "supprimer":
         include "";
         break;
@@ -16,4 +18,10 @@ switch($choixAdmin){
     default :
         echo "";
     
+}*/
+
+switch($choix){
+    case "connexion" :
+        include "../php/"
+
 }
