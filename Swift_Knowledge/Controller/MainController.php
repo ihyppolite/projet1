@@ -42,6 +42,7 @@ switch($choix){
         }
 
         if($reponse){
+            $alertSuccessRegister="Vous etes désormais inscrit sur notre site !";
             include "../php/home.php";
             break;
 
