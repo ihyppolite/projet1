@@ -12,7 +12,8 @@ switch($choix){
         include "../php/add_fiche.php";
         break;
 
-    default :
+    case "affichageUneFiche":
+        include "../php/recherche.php";
         break;
 }
 

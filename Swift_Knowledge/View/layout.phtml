@@ -58,15 +58,13 @@
     </div>
   </header>
   <!--=============== MAIN ===============-->
-  <?php	include $template;
+  <?php	
+      include $template;
 			if(isset($alertConnexionSuccess)){
 				echo $alertConnexionSuccess;
-			}
-
-    
-			if(isset($alertSuccessRegister)){
-				echo $alertSuccessRegister;
-			}
+			}elseif(isset($alertSuccessRegister)){
+        echo $alertSuccessRegister;
+      }
 	?>
   <!--=============== FOOTER ===============-->
   <footer class="footer p-10 bg-base-100 text-base-content">
