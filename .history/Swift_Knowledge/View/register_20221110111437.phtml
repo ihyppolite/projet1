@@ -1,0 +1,70 @@
+<section>
+    <div class="hero min-h-screen" style="background-color: #46a7d6;">
+      <div class="hero-content flex-col lg:flex-row-reverse">
+        <div class="text-center lg:text-left">
+          <h1 class="text-5xl font-fredoka">Inscrivez-vous dès maintenant !</h1>
+          <p class="py-6 font-rubik">S'incrire vous permettra d'accéder à ???</p>
+        </div>
+        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div class="card-body">
+            <form id="login-form" action="../Controller/MainController.php?choix=verif" method="POST">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-fredoka">Nom</span>
+                </label>
+                <input type="text" placeholder="Nom" class="input input-bordered" />
+              </div>
+			  <?php 
+					if(isset($errorNom)){
+						echo $errorNom;
+					}
+				?>
+										
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-fredoka">Prénom</span>
+                </label>
+                <input type="text" placeholder="prénom" class="input input-bordered" />
+              </div>
+			  <?php 
+					if(isset($errorPrenom)){
+						echo $errorPrenom;
+					}
+				?>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-fredoka">Email</span>
+                </label>
+                <input type="text" placeholder="email" class="input input-bordered" />
+              </div>
+			    <?php
+			  		if(isset($errorMail)){
+						echo $errorMail;
+					}
+				?>
+
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-fredoka">Mot de passe</span>
+                </label>
+                <input type="password" placeholder="mot de passe" class="input input-bordered" />
+              </div>
+			  	<?php 
+					if(isset($errorPassword)){
+						echo $errorPassword;
+					}
+				?>
+
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-fredoka">Confirmer votre mot de passe</span>
+                </label>
+                <input type="password" placeholder="re-écrire vorte mot de passe" class="input input-bordered" />
+              </div>
+			  <input class="input input-bordered font-rubik" type="submit" placeholder="valider" required/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
