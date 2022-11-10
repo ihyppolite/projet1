@@ -66,7 +66,7 @@ class FicheModel
 
 
     //fonction de modification du titre d'une fiche
-    function modiftitre($titre, $idfiche)
+    public function modiftitre($titre, $idfiche)
     {
 
         $sql = "update ficheconnaissance set titre = " + $titre + " where idfiche = " + $idfiche;
@@ -76,7 +76,7 @@ class FicheModel
     }
 
     //fonction de modification du titre d'une fiche
-    function modifdate($date, $idfiche)
+    public function modifdate($date, $idfiche)
     {
         $sql = "update ficheconnaissance date = " + $date + " where idfiche = " + $idfiche;
         $req = ConnexionBdd::getInstance()->prepare($sql);
@@ -85,7 +85,7 @@ class FicheModel
     }
 
     //fonction de modification du titre d'une fiche
-    function modiftextefiche($textefiche, $idfiche)
+    public function modiftextefiche($textefiche, $idfiche)
     {
         $sql = "update ficheconnaissance date = " + $textefiche + " where idfiche = " + $idfiche;
         $req = ConnexionBdd::getInstance()->prepare($sql);
@@ -94,7 +94,7 @@ class FicheModel
     }
 
     //fonction de supression d'une fiche
-    function suppfiche($titre)
+    public function suppfiche($titre)
     {
         $sql = "delete from ficheconnaissance where titre == " + $titre;
         $req = ConnexionBdd::getInstance()->prepare($sql);
@@ -103,9 +103,9 @@ class FicheModel
     }
 
       //fonction d'ajout d'une fiche
-      function trouveUneFiche($recherche,$categorie)
+     public function trouveUneFiche($recherche,$categorie)
       {
-          $requete = ConnexionBdd::getInstance()->prepare("SELECT TITRE FROM ficheconnaissance WHERE TITRE LIKE ? AND IDCAT = ?");
+          $requete = ConnexionBdd::getInstance()->prepare("SELECT * FROM ficheconnaissance WHERE TITRE LIKE ? AND IDCAT = ?");
           $requete->execute(array($recherche,$categorie));
           $donnees=$requete->fetchAll();
           return $donnees;

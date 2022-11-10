@@ -42,7 +42,7 @@ switch($choix){
         }
 
         if($reponse){
-            $alertSuccessRegister="Vous etes désormais inscrit sur notre site !";
+            $alertSuccessRegister="<div class='alert alert-success' role='alert'> Vous etes désormais inscrit sur notre site !</div>";
             include "../php/home.php";
             break;
 
