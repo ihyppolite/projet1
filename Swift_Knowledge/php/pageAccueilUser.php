@@ -1,3 +1,3 @@
 <?php 
-$template = "../View/profil.phtml";
+$template = "../View/user/profil.phtml";
 require "../View/layout.phtml";

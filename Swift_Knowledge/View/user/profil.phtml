@@ -15,21 +15,24 @@
             <th></th>
             <th class="font-fredoka">Titre fiche</th>
             <th class="font-fredoka">date</th>
-            <th class="font-fredoka"> </th>
+            <th class="font-fredoka"> Nom</th>
             <th class="font-fredoka">Email</th>
             <th class="font-fredoka">Gestion</th>
           </tr>
         </thead>
         <tbody>
           <!-- row 1 -->
+          <?php foreach($fiche as $fiche){ ?>
+
+            
           <tr class="hover">
-            <td></td>
-            <td class="font-rubik">JACQUOT</td>
-            <td class="font-rubik">Quoc-Thai</td>
-            <td class="font-rubik">No1ceTea</td>
-            <td class="font-rubik">jacquot.thai@gmail.com</td>
-            <td><input type="button" href="#" value="Modifier" class="btn btn-xs btn-primary font-rubik justify-center"></input><br><input type="button" href="#" value="Supprimer" class="btn btn-xs btn-primary font-rubik justify-center"></input></td>
+          <td></td>
+          <td class="font-rubik"><?= $fiche['titre']; ?></td>
+          <td class="font-rubik"><?= $fiche['date']; ?></td>
+          <td class="font-rubik"><?= $fiche['textefiche']; ?></td>
+          <!--<td><button class="btn btn-xs btn-primary font-rubik " value=<?= $user['IDUSER']; ?>>Bannir</button><button class="btn btn-xs btn-primary font-rubik">Modérer</button><button class="btn btn-xs btn-primary font-rubik">Modifier</button></td>-->
           </tr>
+          <?php }; ?> 
         </tbody>
       </table>
     </div>
