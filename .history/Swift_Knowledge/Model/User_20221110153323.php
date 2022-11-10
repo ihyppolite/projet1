@@ -65,7 +65,7 @@ private $mdp;
     }
 
     public static function DelectUser($id){
-        $req=ConnexionBdd::getInstance()->prepare("DELETE * FROM user  WHERE IDUSER = ?");
+        $req=ConnexionBdd::getInstance()->prepare("DELETE FROM user  WHERE IDUSER = ?");
         $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'admin');
         $req->execute(array($id));
         $leResultat=$req->fetchAll();

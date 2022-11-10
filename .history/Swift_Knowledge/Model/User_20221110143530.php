@@ -47,28 +47,4 @@ private $mdp;
         }
         return $rep;
     }
-
-    public static function findallUser(){
-        $req=ConnexionBdd::getInstance()->prepare("select * from user");
-        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'admin');
-        $req->execute();
-        $leResultat=$req->fetchAll();
-        return $leResultat;
-    }
-
-    public static function findUserInfo($mail,$mdp){
-        $req=ConnexionBdd::getInstance()->prepare("select IDUSER from user  where mail=? and mdp=md5(?)");
-        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'admin');
-        $req->execute(array($mail,$mdp));
-        $leResultat=$req->fetchAll();
-        return $leResultat;
-    }
-
-    public static function DelectUser($id){
-        $req=ConnexionBdd::getInstance()->prepare("DELETE * FROM user  WHERE IDUSER = ?");
-        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'admin');
-        $req->execute(array($id));
-        $leResultat=$req->fetchAll();
-        return $leResultat;
-    }
 }

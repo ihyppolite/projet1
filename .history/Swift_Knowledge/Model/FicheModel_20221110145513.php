@@ -66,7 +66,7 @@ class FicheModel
 
 
     //fonction de modification du titre d'une fiche
-    public function modiftitre($titre, $idfiche)
+    function modiftitre($titre, $idfiche)
     {
 
         $sql = "update ficheconnaissance set titre = " + $titre + " where idfiche = " + $idfiche;
@@ -76,7 +76,7 @@ class FicheModel
     }
 
     //fonction de modification du titre d'une fiche
-    public function modifdate($date, $idfiche)
+    function modifdate($date, $idfiche)
     {
         $sql = "update ficheconnaissance date = " + $date + " where idfiche = " + $idfiche;
         $req = ConnexionBdd::getInstance()->prepare($sql);
@@ -85,7 +85,7 @@ class FicheModel
     }
 
     //fonction de modification du titre d'une fiche
-    public function modiftextefiche($textefiche, $idfiche)
+    function modiftextefiche($textefiche, $idfiche)
     {
         $sql = "update ficheconnaissance date = " + $textefiche + " where idfiche = " + $idfiche;
         $req = ConnexionBdd::getInstance()->prepare($sql);
@@ -94,7 +94,7 @@ class FicheModel
     }
 
     //fonction de supression d'une fiche
-    public function suppfiche($titre)
+    function suppfiche($titre)
     {
         $sql = "delete from ficheconnaissance where titre == " + $titre;
         $req = ConnexionBdd::getInstance()->prepare($sql);
@@ -103,9 +103,9 @@ class FicheModel
     }
 
       //fonction d'ajout d'une fiche
-     public function trouveUneFiche($recherche,$categorie)
+      function trouveUneFiche($recherche,$categorie)
       {
-          $requete = ConnexionBdd::getInstance()->prepare("SELECT * FROM ficheconnaissance WHERE TITRE LIKE ? AND IDCAT = ?");
+          $requete = ConnexionBdd::getInstance()->prepare("SELECT TITRE FROM ficheconnaissance WHERE TITRE LIKE ? AND IDCAT = ?");
           $requete->execute(array($recherche,$categorie));
           $donnees=$requete->fetchAll();
           return $donnees;
@@ -114,7 +114,7 @@ class FicheModel
        //fonction d'ajout d'une fiche
        function trouveUneFicheParId($id)
        {
-           $requete = ConnexionBdd::getInstance()->prepare("SELECT * FROM ficheconnaissance WHERE IDUSER = ?");
+           $requete = ConnexionBdd::getInstance()->prepare("SELECT TITRE FROM ficheconnaissance WHERE IDUSER = ?");
            $requete->execute(array($id));
            $donnees=$requete->fetchAll();
            return $donnees;

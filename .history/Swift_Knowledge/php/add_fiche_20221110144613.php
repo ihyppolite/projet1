@@ -7,7 +7,7 @@ require "./Model/FicheModel.php";
 $title=$_POST["title"];
 $content=$_POST["content"];
 $categorie=$_POST["idCategorie"];
-$idUser=$_SESSION["idUser"];
+$idUser=$_SESSION["idUser"]=
 
 
 

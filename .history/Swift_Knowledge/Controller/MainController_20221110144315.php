@@ -23,7 +23,7 @@ switch($choix){
             
         }elseif(!$_POST["nom"]){//vérifie si le nom est vide
             $errorNom="<div class='alert alert-danger' role='alert'>nom vide ! veuillez saisir un nom valide </div>";
-            include "../php/register.php";
+            include "../php/resgister.php";
             break;
             
         }elseif(!$_POST["prenom"]){ //vérifie si le prénom est vide
@@ -44,7 +44,6 @@ switch($choix){
         }
 
         if($reponse){
-            $alertSuccessRegister="<div class='alert alert-success' role='alert'> Vous etes désormais inscrit sur notre site !</div>";
             include "../php/home.php";
             break;
 
@@ -66,7 +65,7 @@ switch($choix){
 
         }else{
             $alertConnexionFail= "<div class='alert alert-danger' role='alert'>Authentification échouée, veuillez vérifier votre mail et votre mot de passe </div>";
-           
+            
             include "../php/login.php";
 
 

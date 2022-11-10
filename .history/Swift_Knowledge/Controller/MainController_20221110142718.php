@@ -23,7 +23,7 @@ switch($choix){
             
         }elseif(!$_POST["nom"]){//vérifie si le nom est vide
             $errorNom="<div class='alert alert-danger' role='alert'>nom vide ! veuillez saisir un nom valide </div>";
-            include "../php/register.php";
+            include "../php/resgister.php";
             break;
             
         }elseif(!$_POST["prenom"]){ //vérifie si le prénom est vide
@@ -39,12 +39,12 @@ switch($choix){
 
         else{
             $reponse=User::addUser($_POST["nom"], $_POST["prenom"],$_POST["mail"],$_POST["password"]);
-            
-           
+            $idUser=User::getIdUser();
+            $_SESSION["idUser"]=$idUser;
+            ;
         }
 
         if($reponse){
-            $alertSuccessRegister="<div class='alert alert-success' role='alert'> Vous etes désormais inscrit sur notre site !</div>";
             include "../php/home.php";
             break;
 
@@ -56,8 +56,6 @@ switch($choix){
     case "verifConnexion":
 
         $responseUser=User::searchUser($_POST["mail"],$_POST["password"]);//appel la méthode searchUser pour vérifier si l'user s'est inscrit. Si oui alors il peut se connecter
-       
-        $_SESSION["idUser"]= User::findUserInfo($_POST["mail"],$_POST["password"]);
 
         if($responseUser){
             $alertConnexionSuccess= "<div class='alert alert-success' role='alert'> Authentification réussi !, Bienvenue </div>";
@@ -66,7 +64,7 @@ switch($choix){
 
         }else{
             $alertConnexionFail= "<div class='alert alert-danger' role='alert'>Authentification échouée, veuillez vérifier votre mail et votre mot de passe </div>";
-           
+            
             include "../php/login.php";
 
 

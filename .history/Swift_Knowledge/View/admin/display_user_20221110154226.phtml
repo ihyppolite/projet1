@@ -1,0 +1,39 @@
+<section>
+    <div class="tabs flex justify-center">
+      <a id="1" class="tab tab-lg tab-bordered font-fredoka tab-active" href="./tab_admin1.html">Idées proposés</a> 
+      <a id="2" class="tab tab-lg tab-bordered font-fredoka" href="./tab_admin2.html">Commentaires signalés</a> 
+      <a id="3" class="tab tab-lg tab-bordered font-fredoka" href="./tab_admin3.html">Fiches signalés</a>
+      <a id="4" class="tab tab-lg tab-bordered font-fredoka" href="./tab_admin4.html">Liste de comptes</a>
+      <a id="5" class="tab tab-lg tab-bordered font-fredoka" href="./tab_admin5.html">Comptes à validés</a>
+      <a id="6" class="tab tab-lg tab-bordered font-fredoka" href="./tab_admin6.html">Liste des catégoriess</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="font-fredoka">Nom</th>
+            <th class="font-fredoka">Prénom</th>
+            
+            <th class="font-fredoka">Email</th>
+            <th class="font-fredoka">Modification</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- row 1 -->
+          <?php foreach($users as $user){ ?>
+
+            
+          <tr class="hover">
+            <td></td>
+            <td class="font-rubik"><?= $user['NOM']; ?></td>
+            <td class="font-rubik"><?= $user['PRENOM']; ?></td>
+            <td class="font-rubik"><?= $user['MAIL']; ?></td>
+            <td><button class="btn btn-xs btn-primary font-rubik " value=<?= $user['IDUSER']; ?>>Bannir</button><button class="btn btn-xs btn-primary font-rubik">Modérer</button><button class="btn btn-xs btn-primary font-rubik">Modifier</button></td>
+          </tr>
+            <?php }; ?> 
+          ?>
+          
