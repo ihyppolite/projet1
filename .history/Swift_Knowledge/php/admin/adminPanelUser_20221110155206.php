@@ -4,5 +4,5 @@ $user = new user;
 
 $users=$user->findallUser();
 
-$template = "../admin/View/display_user.phtml";
-require "../../View/layout.phtml";
+$template = "../admin/View/.phtml";
+require "../View/layout.phtml";
