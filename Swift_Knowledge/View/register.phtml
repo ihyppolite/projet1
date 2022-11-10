@@ -12,7 +12,7 @@
                 <label class="label">
                   <span class="label-text font-fredoka">Nom</span>
                 </label>
-                <input type="text" placeholder="Nom" class="input input-bordered" />
+                <input type="text" id="nom" name="nom" placeholder="Nom" class="input input-bordered" />
               </div>
 			  <?php 
 					if(isset($errorNom)){
@@ -24,7 +24,7 @@
                 <label class="label">
                   <span class="label-text font-fredoka">Prénom</span>
                 </label>
-                <input type="text" placeholder="prénom" class="input input-bordered" />
+                <input type="text" id="prenom" name="prenom" placeholder="prénom" class="input input-bordered" />
               </div>
 			  <?php 
 					if(isset($errorPrenom)){
@@ -35,7 +35,7 @@
                 <label class="label">
                   <span class="label-text font-fredoka">Email</span>
                 </label>
-                <input type="text" placeholder="email" class="input input-bordered" />
+                <input type="text" id="mail" name="mail" placeholder="email" class="input input-bordered" />
               </div>
 			    <?php
 			  		if(isset($errorMail)){
@@ -47,20 +47,13 @@
                 <label class="label">
                   <span class="label-text font-fredoka">Mot de passe</span>
                 </label>
-                <input type="password" placeholder="mot de passe" class="input input-bordered" />
+                <input type="password" id="password" name="password" placeholder="mot de passe" class="input input-bordered" />
               </div>
 			  	<?php 
 					if(isset($errorPassword)){
 						echo $errorPassword;
 					}
 				?>
-
-              <div class="form-control">
-                <label class="label">
-                  <span class="label-text font-fredoka">Confirmer votre mot de passe</span>
-                </label>
-                <input type="password" placeholder="re-écrire vorte mot de passe" class="input input-bordered" />
-              </div>
 			        <input class="input input-bordered font-rubik" type="submit" placeholder="valider" required/>
             </form>
           </div>
