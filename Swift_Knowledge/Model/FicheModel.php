@@ -103,7 +103,7 @@ class FicheModel
     }
 
       //fonction d'ajout d'une fiche
-     public function trouveUneFiche($recherche,$categorie)
+     public static function trouveUneFiche($recherche,$categorie)
       {
           $requete = ConnexionBdd::getInstance()->prepare("SELECT * FROM ficheconnaissance WHERE TITRE LIKE ? AND IDCAT = ?");
           $requete->execute(array($recherche,$categorie));

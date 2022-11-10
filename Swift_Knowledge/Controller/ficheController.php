@@ -13,6 +13,8 @@ switch($choix){
         break;
 
     case "affichageUneFiche":
+        $titreFiche=$_POST['titreFiche'];
+        $categorie['IDCAT'];
         include "../php/recherche.php";
         break;
 }
