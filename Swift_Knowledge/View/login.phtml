@@ -9,7 +9,10 @@
 
 	if($alertConnexionFail){ // la première fois qu'on entre dans la page connexion, la variable est null, elle ne détient rien ("")
 		echo $alertConnexionFail; // si la personne n'a pas pu se connecter, alors le message s'affiche.
-	}
+	}else{
+    $alertConnexionFail="";
+    echo $alertConnexionFail;
+  }
 	?>
   <!--=============== MAIN ===============-->
   <section>
