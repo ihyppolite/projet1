@@ -57,7 +57,7 @@ private $mdp;
     }
 
     public static function findUserInfo($mail,$mdp){
-        $req=ConnexionBdd::getInstance()->prepare("select IDUSER from user  where mail=? and mdp=md5(?)");
+        $req=ConnexionBdd::getInstance()->prepare("select * from user  where mail=? and mdp=md5(?)");
         $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'admin');
         $req->execute(array($mail,$mdp));
         $leResultat=$req->fetchAll();

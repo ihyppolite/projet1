@@ -11,15 +11,7 @@ private $mdp;
         return $this->idUser;
     }
 
-    public function setIdUser(){
-        return $this->idUser;
-    }
-
     public function getNom(){
-        return $this->nom;
-    }
-
-    public function setNom(){
         return $this->nom;
     }
     public function getPrenom(){
@@ -46,21 +38,5 @@ private $mdp;
             $rep=true;
         }
         return $rep;
-    }
-
-    public static function findallUser($mail,$mdp){
-        $req=ConnexionBdd::getInstance()->prepare("select * from user");
-        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'admin');
-        $req->execute(array($mail,$mdp));
-        $leResultat=$req->fetchAll();
-        return $leResultat;
-    }
-
-    public static function findUserInfo($mail,$mdp){
-        $req=ConnexionBdd::getInstance()->prepare("select IDUSER from user  where mail=? and mdp=md5(?)");
-        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'admin');
-        $req->execute(array($mail,$mdp));
-        $leResultat=$req->fetchAll();
-        return $leResultat;
     }
 }

@@ -39,8 +39,9 @@ switch($choix){
 
         else{
             $reponse=User::addUser($_POST["nom"], $_POST["prenom"],$_POST["mail"],$_POST["password"]);
-            
-           
+            $idUser=User::getIdUser();
+            $_SESSION["idUser"]=$idUser;
+            ;
         }
 
         if($reponse){
@@ -55,8 +56,6 @@ switch($choix){
     case "verifConnexion":
 
         $responseUser=User::searchUser($_POST["mail"],$_POST["password"]);//appel la méthode searchUser pour vérifier si l'user s'est inscrit. Si oui alors il peut se connecter
-       
-        $_SESSION["idUser"]= User::findUserInfo($_POST["mail"],$_POST["password"]);
 
         if($responseUser){
             $alertConnexionSuccess= "<div class='alert alert-success' role='alert'> Authentification réussi !, Bienvenue </div>";
