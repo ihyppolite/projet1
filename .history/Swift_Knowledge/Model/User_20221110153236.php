@@ -64,10 +64,10 @@ private $mdp;
         return $leResultat;
     }
 
-    public static function DelectUser($id){
-        $req=ConnexionBdd::getInstance()->prepare("DELETE * FROM user  WHERE IDUSER = ?");
+    public static function DelectUser($mail,$mdp){
+        $req=ConnexionBdd::getInstance()->prepare("Delect");
         $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'admin');
-        $req->execute(array($id));
+        $req->execute(array($mail,$mdp));
         $leResultat=$req->fetchAll();
         return $leResultat;
     }
