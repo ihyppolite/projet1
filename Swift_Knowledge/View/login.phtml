@@ -23,18 +23,18 @@
         </div>
         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div class="card-body">
-            <form  action="../Controller/MainController.php?choix=verif" method="POST">
+            <form  action="../Controller/MainController.php?choix=verifConnexion" method="POST">
               <div class="form-control">
                 <label class="label">
                   <span class="label-text font-fredoka">Email</span>
                 </label>
-                <input type="text" placeholder="email" class="input input-bordered font-rubik" required/>
+                <input type="text" id="password" name="mail" placeholder="email" class="input input-bordered font-rubik" required/>
               </div>
               <div class="form-control">
                 <label class="label">
                   <span class="label-text font-fredoka">Mot de passe</span>
                 </label>
-                <input type="password" placeholder="mot de passe" class="input input-bordered font-rubik" required/>
+                <input type="password" id="password" name="password" placeholder="mot de passe" class="input input-bordered font-rubik" required/>
               </div>
               <input type="submit" placeholder="valider"  class="input input-bordered font-rubik" required/>
             </form>
