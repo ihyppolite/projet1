@@ -110,15 +110,6 @@ class FicheModel
           $donnees=$requete->fetchAll();
           return $donnees;
       }
-
-       //fonction d'ajout d'une fiche
-       function trouveUneFicheParId($id)
-       {
-           $requete = ConnexionBdd::getInstance()->prepare("SELECT TITRE FROM ficheconnaissance WHERE IDUSER = ?");
-           $requete->execute(array($id));
-           $donnees=$requete->fetchAll();
-           return $donnees;
-       }
   
 
 
