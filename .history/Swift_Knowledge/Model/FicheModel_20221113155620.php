@@ -105,9 +105,10 @@ class FicheModel
     //fonction de supression d'une fiche
     public function suppfiche($id)
     {
-        $sql = "delete from ficheconnaissance where IDFICHE = ?;";
+        $sql = "delete from ficheconnaissance where IDFICHE = " + $id + ";";
         $req = ConnexionBdd::getInstance()->prepare($sql);
-        $req->execute(array($id));
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, '');
+        $req->execute();
     }
 
 

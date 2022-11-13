@@ -1,7 +1,7 @@
 <?php
-
+require "../Model/FicheModel.php";
 require "../Model/Commentaire.php";
-
+require "../Model/User.php";
 
 
 $set = 'no';

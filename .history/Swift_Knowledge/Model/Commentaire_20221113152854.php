@@ -16,8 +16,8 @@ class Commentaire
 
     static function supprimerCommentaire($idcommentaire)
     {
-        $req = ConnexionBdd::getInstance()->prepare("delete from commentaire where idcommentaire = ? ;");
-        $req->execute(array($idcommentaire));
+        $req = ConnexionBdd::getInstance()->prepare("delete * from table commentaire where idcommentaire = " + $idcommentaire + ";");
+        $req->execute();
     }
 
     static function modifierContenu($newContenu, $idcommentaire)
@@ -36,7 +36,7 @@ class Commentaire
 
     static function recupérerToutCommentaire()
     {
-        $req = ConnexionBdd::getInstance()->prepare("SELECT user.NOM, user.PRENOM , commentaire.IDCOMMENTAIRE ,commentaire.CONTENU ,commentaire.IDFICHE ,commentaire.IDCOMMENTAIRE , ficheconnaissance.TITRE FROM commentaire INNER JOIN ficheconnaissance ON commentaire.IDFICHE = ficheconnaissance.IDFICHE INNER JOIN user ON user.IDUSER = commentaire.IDUSER");
+        $req = ConnexionBdd::getInstance()->prepare("SELECT user.NOM, user.PRENOM , commentaire.IDCOMMENTAIRE ,commentaire.CONTENU ,commentaire.IDFICHE , ficheconnaissance.TITRE FROM commentaire INNER JOIN ficheconnaissance ON commentaire.IDFICHE = ficheconnaissance.IDFICHE INNER JOIN user ON user.IDUSER = commentaire.IDUSER");
         $req->execute();
         $donnees = $req->fetchAll();
         return $donnees;

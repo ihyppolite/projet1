@@ -12,37 +12,33 @@
       <thead>
         <tr>
           <th></th>
-
-          <th class="font-fredoka">user</th>
-          <th class="font-fredoka">fiche</th>
-          <th class="font-fredoka">contenu</th>
-
+          <th class="font-fredoka">Nom</th>
+          <th class="font-fredoka">Prénom</th>
+          <th class="font-fredoka">Email</th>
+          <th class="font-fredoka">Modification</th>
         </tr>
       </thead>
       <tbody>
-        <?php if (!empty($commentaires)) { ?>
+        <?php if (!empty($users)) { ?>
           <!-- row 1 -->
-          <?php foreach ($commentaires as $commentaire) { ?>
+          <?php foreach ($users as $user) { ?>
 
 
             <tr class="hover">
               <td></td>
-              <td class="font-rubik"><?= $commentaire["NOM"] ?> <?= $commentaire["NOM"] ?><?= $commentaire["PRENOM"] ?></td>
-              <td class="font-rubik"><?= $commentaire['TITRE']; ?></td>
-              <td class="font-rubik"><?= substr($commentaire['CONTENU'], 1, 15); ?></td>
-              <td><button class="btn btn-xs btn-primary font-rubik "><a href="../php/supprimer/supCom.php?id=<?= $commentaire["IDCOMMENTAIRE"] ?>">supprimer</a></button><button class="btn btn-xs btn-primary font-rubik">Modérer</button><button class="btn btn-xs btn-primary font-rubik">Modifier</button></td>
+              <td class="font-rubik"><?= $user['NOM']; ?></td>
+              <td class="font-rubik"><?= $user['PRENOM']; ?></td>
+              <td class="font-rubik"><?= $user['MAIL']; ?></td>
+              <td><button class="btn btn-xs btn-primary font-rubik "><a href=" ../php/supprimer/supUser.php?id=<?= $user['IDUSER'] ?>">Bannir</a></button><button class="btn btn-xs btn-primary font-rubik">Modérer</button><button class="btn btn-xs btn-primary font-rubik">Modifier</button></td>
             </tr>
           <?php }; ?>
-
-
         <?php } else { ?>
           <tr>
-            <td class="font-rubik">nul</td>
-            <td class="font-rubik">nul</td>
             <td class="font-rubik"></td>
             <td class="font-rubik"></td>
             <td class="font-rubik"></td>
-
+            <td class="font-rubik"></td>
+            <td class="font-rubik"></td>
           </tr>
 
         <?php } ?>

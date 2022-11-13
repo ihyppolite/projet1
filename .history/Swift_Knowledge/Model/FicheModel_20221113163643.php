@@ -107,6 +107,7 @@ class FicheModel
     {
         $sql = "delete from ficheconnaissance where IDFICHE = ?;";
         $req = ConnexionBdd::getInstance()->prepare($sql);
+        $req->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, '');
         $req->execute(array($id));
     }
 

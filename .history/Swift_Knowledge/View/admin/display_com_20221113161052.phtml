@@ -30,7 +30,7 @@
               <td class="font-rubik"><?= $commentaire["NOM"] ?> <?= $commentaire["NOM"] ?><?= $commentaire["PRENOM"] ?></td>
               <td class="font-rubik"><?= $commentaire['TITRE']; ?></td>
               <td class="font-rubik"><?= substr($commentaire['CONTENU'], 1, 15); ?></td>
-              <td><button class="btn btn-xs btn-primary font-rubik "><a href="../php/supprimer/supCom.php?id=<?= $commentaire["IDCOMMENTAIRE"] ?>">supprimer</a></button><button class="btn btn-xs btn-primary font-rubik">Modérer</button><button class="btn btn-xs btn-primary font-rubik">Modifier</button></td>
+              <td><button class="btn btn-xs btn-primary font-rubik "><a href="../../php/supprimer/supCom.php?id=<?= $commentaire["IDFICHE"] ?>">supprimer</a></button><button class="btn btn-xs btn-primary font-rubik">Modérer</button><button class="btn btn-xs btn-primary font-rubik">Modifier</button></td>
             </tr>
           <?php }; ?>
 

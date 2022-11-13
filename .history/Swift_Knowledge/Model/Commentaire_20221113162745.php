@@ -16,7 +16,7 @@ class Commentaire
 
     static function supprimerCommentaire($idcommentaire)
     {
-        $req = ConnexionBdd::getInstance()->prepare("delete from commentaire where idcommentaire = ? ;");
+        $req = ConnexionBdd::getInstance()->prepare("delete from table commentaire where idcommentaire =? ;");
         $req->execute(array($idcommentaire));
     }
 
