@@ -1,0 +1,60 @@
+<section>
+
+  <?php var_dump($fiches) ?>
+  <div class="tabs flex justify-center">
+    <a id="2" class="tab tab-lg tab-bordered font-fredoka" href="../../php/admin/adminpanelFiche.php">fiches</a>
+    <a id="3" class="tab tab-lg tab-bordered font-fredoka" href="../../php/admin/adminpanelCom.php">Commentaires</a>
+    <a id="4" class="tab tab-lg tab-bordered font-fredoka" href="../../php/admin/adminpanelUser.php">Liste de comptes</a>
+    <a id="5" class="tab tab-lg tab-bordered font-fredoka" href="./tab_admin5.html">Comptes à validés</a>
+    <a id="6" class="tab tab-lg tab-bordered font-fredoka" href="./tab_admin6.html">Liste des catégoriess</a>
+  </div>
+</section>
+
+<section>
+  <div class="overflow-x-auto">
+    <table class="table w-full">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="font-fredoka">titre</th>
+          <th class="font-fredoka">date</th>
+          <th class="font-fredoka">contenu</th>
+          <th class="font-fredoka">user</th>
+          <th class="font-fredoka">category</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <?php $i = 0; ?>
+        <?php if (!empty($fiches)) { ?>
+          <!-- row 1 -->
+          <?php foreach ($fiches as $fiche) { ?>
+            <?php var_dump($fiche['ftitle']); ?>
+            <tr class="hover">
+              <td></td>
+              <td class="font-rubik"><?= $fiche[$i][0]; ?></td>
+              <td class="font-rubik"><?= $fiche['DATE']; ?></td>
+              <td class="font-rubik"><?= substr($fiche['TEXTEFICHE'], 1, 15); ?></td>
+              <td class="font-rubik"><?= $fiche[""] ?></td>
+              <td class="font-rubik"><?= $categorie->recupererUneCategory($fiche['IDCAT']); ?></td>
+              <td><button class="btn btn-xs btn-primary font-rubik " value=<?= $user['IDUSER']; ?>>Bannir</button><button class="btn btn-xs btn-primary font-rubik">Modérer</button><button class="btn btn-xs btn-primary font-rubik">Modifier</button></td>
+            </tr>
+            <?php $i++; ?>
+
+          <?php }; ?>
+
+
+        <?php } else { ?>
+          <tr>
+            <td class="font-rubik"></td>
+            <td class="font-rubik"></td>
+            <td class="font-rubik"></td>
+            <td class="font-rubik"></td>
+            <td class="font-rubik"></td>
+          </tr>
+
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
+</section>

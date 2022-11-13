@@ -1,0 +1,62 @@
+
+<?php
+ 	if(!empty($notification)):?>
+   <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      	<?php echo $notification ?>
+   		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <?php endif;
+
+//	if($alertConnexionFail){ // la première fois qu'on entre dans la page connexion, la variable est null, elle ne détient rien ("")
+//		echo $alertConnexionFail; // si la personne n'a pas pu se connecter, alors le message s'affiche.
+
+	?>
+  <!--=============== MAIN ===============-->
+  <section>
+    <div class="hero min-h-screen" style="background-image: url(../img/BgBookIA.png);">
+      <div class="hero-content flex-col lg:flex-row-reverse">
+        <div class="text-center lg:text-left">
+          <h1 class="text-5xl font-fredoka text-black">Connectez-vous dès maintenant !</h1>
+          <p class="py-6 font-rubik text-black text-xl">Le compte vous permet d'avoir accès à la suggestion de
+            modification de
+            fiche, ainsi que la possibilité de commenter les fiches, ou même d'en créer.</p>
+        </div>
+        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div class="card-body">
+            <form  action="../traitementlogin.php" method="POST">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-fredoka">Email</span>
+                </label>
+                <input type="text" id="password" name="mail" placeholder="email" class="input input-bordered font-rubik" required/>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-fredoka">Mot de passe</span>
+                </label>
+                <input type="password" id="password" name="password" placeholder="mot de passe" class="input input-bordered font-rubik" required/>
+              </div>
+              <input type="submit" placeholder="valider"  class="input input-bordered font-rubik" required/>
+            </form>
+            
+            <div class="pt-8">
+              <a href="../php/register.php?choix=register"><span class="label-text font-fredoka">Nouveau client ? S'inscrire <svg version="1.1"
+                    id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="20" height="20" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;"
+                    xml:space="preserve">
+                    <path id="XMLID_27_" d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
+               s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
+               c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z" />
+                  </svg></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+</body>
+
+</html>

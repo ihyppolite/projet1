@@ -1,0 +1,45 @@
+
+ <section>
+ <?php
+ 	if(!empty( $_SESSION["loginMes"])):?>
+  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+  <strong class="font-bold">Hello</strong>
+  <span class="block sm:inline">Vous etes connecter.</span>
+  <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+    <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+  </span>
+</div>
+  <?php endif;?>
+ 
+  
+    <div class="hero min-h-screen" style="background-image: url(../img/BgBookIA.png);">
+      <section>
+        <div>
+          <div class="animated-title">
+            <div class="text-top">
+              <div class="font-fredoka">
+                <span>Votre base de</span>
+                <span>Connaissance</span>
+              </div>
+            </div>
+            <div class="text-bottom">
+              <div class="font-fredoka">SwiftKnowledge</div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="hero-overlay bg-opacity-0"></div>
+      <div class="hero-content text-center text-neutral-content">
+        <div class="max-w-md mt-60">
+          <p class="mb-5 text-xl font-rubik text-black">Bienvenue sur la base de connaissance de G4, elle permettra à
+            vous même
+            d'apporter réponse au problème que vous rencontrez.</p>
+          <a href="../php/register.php"><button class="btn btn-primary font-fredoka">Inscription</button></a>
+          <a href="../php/login.php"><button class="btn btn-primary font-fredoka">Connexion</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+

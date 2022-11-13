@@ -1,0 +1,42 @@
+
+  
+
+<section>
+    <div class="hero min-h-screen" style="background-color: #46a7d6;">
+      <div class="hero-content flex-col lg:flex-row-reverse">
+        <div class="text-center lg:text-left">
+          <h1 class="text-5xl font-fredoka">Créer votre propre fiche</h1>
+        </div>
+        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div class="card-body">
+            <form action="../traimentfiche.php" method="POST">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-fredoka">Titre</span>
+                </label>
+                <input type="text" id="titre" name="titre" placeholder="Titre de la fiche" class="input input-bordered" />
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text font-fredoka">Votre problème</span>
+                </label>
+                <input type="text" id="probleme" name="probleme" placeholder="Votre problème" class="input input-bordered" />
+              </div>
+              <br>
+              <select class="select w-full max-w-xs">
+                <!-- faire le code pour avoir la liste des catégories qui sont dans la bdd -->
+              <?php foreach($categories as $categorie){ ?>
+                <option disabled selected>Catégorie</option>
+                <option value="<?= $categorie['IDCAT']; ?>"> 
+
+                <?= $categorie['TITRE']; } ?>
+
+             
+              </select>
+              <input type="submit" placeholder="valider"  class="input input-bordered font-rubik" required/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

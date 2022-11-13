@@ -1,0 +1,51 @@
+<section>
+    <div class="tabs flex justify-center">
+      <a id="1" class="tab tab-lg tab-bordered font-fredoka tab-active" href="./tab_admin1.html">Idées proposés</a> 
+      <a id="2" class="tab tab-lg tab-bordered font-fredoka" href="./tab_admin2.html">Commentaires signalés</a> 
+      <a id="3" class="tab tab-lg tab-bordered font-fredoka" href="./tab_admin3.html">Fiches signalés</a>
+      <a id="4" class="tab tab-lg tab-bordered font-fredoka" href="./tab_admin4.html">Liste de comptes</a>
+      <a id="5" class="tab tab-lg tab-bordered font-fredoka" href="./tab_admin5.html">Comptes à validés</a>
+      <a id="6" class="tab tab-lg tab-bordered font-fredoka" href="./tab_admin6.html">Liste des catégoriess</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <thead>
+          <tr>
+            <th></th>
+            
+            <th class="font-fredoka">contenu</th>
+            <th class="font-fredoka">FICHE</th>
+            <th class="font-fredoka">category</th>
+
+          </tr>
+        </thead>
+        <tbody>
+        <?php if(!empty($commentaires)){ ?>
+          <!-- row 1 -->
+          <?php foreach($commentaires as $commentaire){ ?>
+
+            
+          <tr class="hover">
+            <td></td>
+            <td class="font-rubik"><?=substr( $commentaire['CONTENU'],1,15); ?></td>
+            <td class="font-rubik"><?= $fiche ->recupNom($commentaire['IDFICHE']) ?></td>
+            <td class="font-rubik"><?= $user->findUserName($commentaire['IDUSER']); ?></td>
+            <td><button class="btn btn-xs btn-primary font-rubik " value=<?= $user['IDUSER']; ?>>Bannir</button><button class="btn btn-xs btn-primary font-rubik">Modérer</button><button class="btn btn-xs btn-primary font-rubik">Modifier</button></td>
+          </tr>
+            <?php }; ?> 
+         
+
+          <?php } else { ?>
+
+            <td class="font-rubik"></td>
+            <td class="font-rubik"></td>
+            <td class="font-rubik"></td>
+            <td class="font-rubik"></td>
+            <td class="font-rubik"></td>
+
+            <?php } ?>
+        
+          

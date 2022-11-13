@@ -1,0 +1,52 @@
+<section>
+  <div class="tabs flex justify-center">
+    <a id="2" class="tab tab-lg tab-bordered font-fredoka" href="../php/adminpanelFiche.php">fiches</a>
+    <a id="3" class="tab tab-lg tab-bordered font-fredoka" href="../../php/adminpanelCom.php">Commentaires</a>
+    <a id="4" class="tab tab-lg tab-bordered font-fredoka" href="../../php/adminpanelUser.php">Liste de comptes</a>
+  </div>
+</section>
+
+<section>
+  <div class="overflow-x-auto">
+    <table class="table w-full">
+      <thead>
+        <tr>
+          <th></th>
+
+          <th class="font-fredoka">contenu</th>
+          <th class="font-fredoka">FICHE</th>
+          <th class="font-fredoka">category</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <?php if (!empty($commentaires)) { ?>
+          <!-- row 1 -->
+          <?php foreach ($commentaires as $commentaire) { ?>
+
+
+            <tr class="hover">
+              <td></td>
+              <td class="font-rubik"><?= substr($commentaire['CONTENU'], 1, 15); ?></td>
+              <td class="font-rubik"><?= $fiche->recupNom($commentaire['IDFICHE']) ?></td>
+              <td class="font-rubik"><?= $user->findUserName($commentaire['IDUSER']); ?></td>
+              <td><button class="btn btn-xs btn-primary font-rubik ">Bannir</button><button class="btn btn-xs btn-primary font-rubik">Modérer</button><button class="btn btn-xs btn-primary font-rubik">Modifier</button></td>
+            </tr>
+          <?php }; ?>
+
+
+        <?php } else { ?>
+          <tr>
+            <td class="font-rubik">nul</td>
+            <td class="font-rubik">nul</td>
+            <td class="font-rubik"></td>
+            <td class="font-rubik"></td>
+            <td class="font-rubik"></td>
+
+          </tr>
+
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
+</section>
