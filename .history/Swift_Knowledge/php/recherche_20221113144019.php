@@ -9,7 +9,7 @@ if (!empty($_GET)) {
     $categorie = $_GET['categorie'];
 
     $fiche = new FicheModel;
-    $reponse = $fiche->trouveUneFicheRecherche($recherche, $categorie);
+    $reponse = $fiche->trouveUneFicheRecherch($recherche, $categorie);
 
     return $reponse;
 } else {
