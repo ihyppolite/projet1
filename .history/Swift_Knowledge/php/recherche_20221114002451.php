@@ -3,7 +3,7 @@ require "../Model/FicheModel.php";
 
 $set = 'no';
 
-if (!empty($_POST)) {
+if (!empty($_GET)) {
 
     $recherche = $_POST['titreFiche'] . '%';
     $categorie = $_POST["category"];

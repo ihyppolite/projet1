@@ -8,7 +8,7 @@
     </div>
     <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <form action="../php/recherche.php" method="POST">
+        <form action="../Controller/ficheController.php?choix=affichageUneFiche" method="GET">
           <section>
             <div class="form-control">
               <div class="input-group flex ">
@@ -21,7 +21,7 @@
               </div>
             </div>
             <br>
-            <select name="category" class="select select-bordered w-full max-w-xs flex">
+            <select class="select select-bordered w-full max-w-xs flex">
               <?php
               foreach ($listeCategories as $categorie) { ?>
                 <option disabled selected>Catégorie</option>

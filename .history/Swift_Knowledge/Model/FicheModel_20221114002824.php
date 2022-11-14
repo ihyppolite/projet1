@@ -113,7 +113,7 @@ class FicheModel
 
     public static function trouveUneFicheRecherche($recherche, $categorie)
     {
-        $requete = ConnexionBdd::getInstance()->prepare("SELECT T1.TITRE as ftitle ,T1.IDFICHE ,T1.TEXTEFICHE, T1.DATE ,T1.IDFICHE ,T2.NOM , T2.PRENOM, T3.TITRE FROM ficheconnaissance T1 INNER JOIN user T2 ON T1.IDUSER = T2.IDUSER INNER JOIN categorie T3 ON T1.IDCAT = T3.IDCAT WHERE T1.TITRE LIKE ? AND T1.IDCAT = ?");
+        $requete = ConnexionBdd::getInstance()->prepare("SELECT T1.TITRE as ftitle ,T1.IDFICHE ,T1.TEXTEFICHE, T1.DATE ,T1.IDFICHE ,T2.NOM , T2.PRENOM, T3.TITRE FROM ficheconnaissance T1 INNER JOIN user T2 ON T1.IDUSER = T2.IDUSER INNER JOIN categorie T3 ON T1.IDCAT = T3.IDCAT WHERE TITRE LIKE ? AND IDCAT = ?");
         $requete->execute(array($recherche, $categorie));
         $donnees = $requete->fetchAll();
         return $donnees;

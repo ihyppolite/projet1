@@ -51,9 +51,9 @@
         </div>
         <a class="btn btn-ghost normal-case text-xl" href="../php/home.php"><img class="object-contain w-44" src="../img/YKTextBlack.png" alt="icon"></a>
       </div>
-      <div class="navbar  hidden lg:flex">
+      <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
-          <?php if (isset($_SESSION["loginMes"])) { ?>
+          <?php if (empthy($_SESSION["loginMes"])) { ?>
             <li><a href="../php/adminpanelFiche.php" class="font-fredoka">profil</a></li>
             <li><a href="../php/afficher.php" class="font-fredoka">les fiches</a></li>
 
